@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">XposedSmsCode</string>
+    <string name="app_name">SMS Code</string>
     <string name="xposed_description">Extract code from new SMS message and copy it to clipboard. It can also Auto-input SMS code</string>
 
     <!-- general -->

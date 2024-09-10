@@ -117,12 +117,6 @@ public class HomeActivity extends BaseActivity {
             case R.id.action_home_faq:
                 onFAQSelected();
                 return true;
-            case R.id.action_taichi_users_notice:
-                onTaichiUsersNoticeSelected();
-                return true;
-            case R.id.action_edxposed_users_notice:
-                onEdxposedUsersNoticeSelected();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -171,22 +165,15 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void checkModuleActivationStatus() {
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(() -> {
-            if (isFinishing()) {
-                return;
-            }
-
-            String format = "%s(%s)";
-            String appName = getString(R.string.app_name);
-            final String appTitle;
-            if (ModuleUtils.isModuleEnabled()) {
-                appTitle = String.format(format, appName, getString(R.string.module_status_active));
-            } else {
-                appTitle = String.format(format, appName, getString(R.string.module_status_inactive));
-            }
-            mToolbar.setTitle(appTitle);
-        }, 1000L);
+        String format = "%s (%s)";
+        String appName = getString(R.string.app_name);
+        final String appTitle;
+        if (ModuleUtils.isModuleEnabled()) {
+            appTitle = String.format(format, appName, getString(R.string.module_status_active));
+        } else {
+            appTitle = String.format(format, appName, getString(R.string.module_status_inactive));
+        }
+        mToolbar.setTitle(appTitle);
     }
 
     @SuppressLint("WorldReadableFiles")

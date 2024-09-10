@@ -145,7 +145,6 @@ public class SettingsFragment extends BasePreferenceFragment implements
         showVersionInfo(versionPref);
         findPreference(PrefConst.KEY_JOIN_QQ_GROUP).setOnPreferenceClickListener(this);
         findPreference(PrefConst.KEY_SOURCE_CODE).setOnPreferenceClickListener(this);
-        findPreference(PrefConst.KEY_DONATE_BY_ALIPAY).setOnPreferenceClickListener(this);
         findPreference(PrefConst.KEY_PRIVACY_POLICY).setOnPreferenceClickListener(this);
         // about group end
     }

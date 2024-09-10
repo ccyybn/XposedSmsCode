@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply greenDao plugin
-apply from: 'and-res-guard.gradle'
 
 def keyFile = file(findProperty("tianma.keystore.path") as String)
 def propertyFile = file(findProperty("tianma.signature.path") as String)
@@ -103,7 +102,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            output.outputFileName = "XposedSmsCode_v${variant.versionName.replaceAll('\\s+', '_')}_${releaseTime()}_${variant.buildType.name.charAt(0)}.apk"
+            output.outputFileName = "SmsCode_${variant.versionName.replaceAll('\\s+', '_')}_${releaseTime()}.apk"
         }
     }
 
@@ -175,8 +174,6 @@ dependencies {
 
     // GreenDao
     implementation "org.greenrobot:greendao:$greenDaoVersion"
-    // GreenDao Upgrade Helper
-    implementation "com.github.yuweiguocn:GreenDaoUpgradeHelper:$greenDaoHelperVersion"
 
     // Gson
     implementation "com.google.code.gson:gson:$gsonVersion"
